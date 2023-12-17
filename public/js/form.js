@@ -18,22 +18,8 @@ window.onload = () => {
 const userName = document.querySelector('.name') || null;
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
+const confirmPassword = document.querySelector('.confirm-password');
 const submitBtn = document.querySelector('.submit-btn');
-
-const onEnter = (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Evitar la acción por defecto del formulario
-
-        submitBtn.click();
-    }
-};
-
-// Agregar el evento keydown a los campos de formulario para detectar "Enter"
-[userName, email, password].forEach((input) => {
-    if (input) {
-        input.addEventListener('keydown', onEnter);
-    }
-});
 
 if(userName == null){ // quiere decir que la pagina de inicio de sesion está abierta
     submitBtn.addEventListener('click', () => {
@@ -51,6 +37,16 @@ if(userName == null){ // quiere decir que la pagina de inicio de sesion está ab
         })
     })
 }else{ //quiere decir que la página de registro está abierta
+    //only allow to submit if the password and confirm password are the same    
+    confirmPassword.addEventListener('input', () => {
+        if(password.value !== confirmPassword.value){
+            confirmPassword.style.border = '1px solid red';
+            submitBtn.disabled = true;
+        }else{
+            confirmPassword.style.border = '1px solid #ccc';
+            submitBtn.disabled = false;
+        }
+    })
 
     submitBtn.addEventListener('click', () => {
         fetch('/register-user', {
@@ -91,3 +87,18 @@ const alertBox = (data) => {
         alertContainter.style.top = null;
     }, 5000);
 }
+
+const onEnter = (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Evitar la acción por defecto del formulario
+
+        submitBtn.click();
+    }
+};
+
+// Agregar el evento keydown a los campos de formulario para detectar "Enter"
+[userName, email, password, confirmPassword].forEach((input) => {
+    if (input) {
+        input.addEventListener('keydown', onEnter);
+    }
+});
