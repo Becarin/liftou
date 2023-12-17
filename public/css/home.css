@@ -1,0 +1,293 @@
+*{
+    margin: 0;
+   Padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    Position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    Position: inherit;
+    width: 90%;
+    min-height: 87vh;
+    height: auto;
+    border: 5px solid #FFFBFE;
+    justify-content: center;
+    align-items: center;   
+    z-index: 1;
+}
+
+.logout{
+    Position: absolute;
+    top: 10px;
+    right: 0;
+    Padding: 10px 20px;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: #001F3F;
+    background: none;
+    text-decoration: underline;
+    cursor:Pointer;
+    outline: none;
+    border: none;
+}
+
+.fecha{
+    font-family: 'Montserrat', sans-serif;
+    Position: absolute;
+    left: 15;
+    Padding: 100px 25px;
+    font-size: 40px;
+    color: #003366;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.greeting{
+    font-family: 'Montserrat', sans-serif;
+    Position: absolute;
+    top: 155px;
+    left: 0;
+    Padding: 30px 20px;
+    font-size: 50px;
+    color: #001F3F;
+    background: none;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+}
+.logo{
+    Position: relative;
+    Padding: 0px 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 10px;
+    z-index: 2;
+}
+
+/* Añade estos estilos */
+.horas-container {
+    display: flex;
+    align-items: center;
+    margin-top: 180px; 
+    margin-left: 60px;
+}
+
+.horas {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    color: #001F3F;
+    margin-left: 0px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+/* Estilos adicionalesPara la imagen del reloj si es necesario */
+.reloj {
+    width: 50px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+/* Alinea la clase workedHours a la derecha */
+.workedHours {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #003366;
+    Position: absolute;
+    top: 347px;
+    left: 460px; 
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.obs-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; 
+    margin-left: 170px;
+}
+
+.obsEncountered {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #B0564A;
+    Position: absolute;
+    top: 420px;
+    left: 460px; 
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.obsAvoided {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #003366;
+    Position: absolute;
+    top: 390px;
+    left: 460px; 
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.exceeded-limit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #B0564A;
+    Position: absolute;
+    top: 465px;
+    left: 460px; 
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.within-limit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #003366;
+    Position: absolute;
+    top: 465px;
+    left: 460px; 
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.weight-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; 
+    margin-left: 125px;
+}
+
+.graficaDia{
+    font-family: 'Montserrat', sans-serif;
+    left: 0;
+    Padding: 30px 20px;
+    font-size: 50px;
+    color: #001F3F;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.graficaSemana{
+    font-family: 'Montserrat', sans-serif;
+    left: 0;
+    Padding: 60px 20px;
+    font-size: 50px;
+    color: #001F3F;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.basicStats, .dailyGraph, .weeklyGraph {
+    margin-top: 20px;
+}
+
+.graph-container {
+    position: relative; /* Establece la posición relativa */
+}
+
+canvas {
+    display: block; /* Asegura que el canvas se comporte como un bloque */
+}
+
+/* Aplica posición absoluta a las imágenes */
+.p1, .p2, .p3, .p4 {
+    position: absolute;
+    bottom: 0; /* Posición en la parte inferior del contenedor */
+    left: 0; /* Ajusta la posición izquierda */
+    height: 90px;
+    display: none;
+}
+
+.p1{
+    left: 50px;
+}
+
+.p2{
+    left: 250px;
+}
+
+.p3{
+    left: 450px;
+}
+
+.p4{
+    left: 650px;
+}
+
+.week-container {
+    position: relative; /* Establece la posición relativa */
+}
+
+/* Aplica posición absoluta a las imágenes */
+.w1, .w2, .w3, .w4 {
+    position: absolute;
+    bottom: 0; /* Posición en la parte inferior del contenedor */
+    left: 0; /* Ajusta la posición izquierda */
+    height: 70px;
+    display: none;
+}
+
+.w1{
+    top: -56px;
+    left: 175px;
+}
+
+.w2{
+    top: -56px;
+    left: 295px;
+}
+
+.w3{
+    top: -56px;
+    left: 400px;
+}
+
+.w4{
+    top: -58px;
+    left: 515px;
+}
+
+.caratula{
+    left: 0;
+    Padding: 0px 20px;
+    background: none;
+    outline: none;
+    border-radius: 10%;
+}
+
+.textoFuerte , .textoAlivia{
+    font-family: 'Montserrat', sans-serif;
+    left: 0;
+    Padding: 20px 20px;
+    font-size: 50px;
+    color: #001F3F;
+    background: none;
+    outline: none;
+    border: none;
+}

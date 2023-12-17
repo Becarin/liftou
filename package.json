@@ -1,0 +1,38 @@
+{
+  "name": "loginform",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "chart.js": "^4.4.0",
+    "express.js": "^1.0.0",
+    "knex": "^2.5.1",
+    "moment": "^2.29.4",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3"
+  },
+  "keywords": [],
+  "additionalConfig": {
+    "name": "chartjs-example",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+      "dev": "parcel src/index.html",
+      "build": "parcel build src/index.html"
+    },
+    "devDependencies": {
+      "parcel": "^2.6.2"
+    },
+    "dependencies": {
+      "@cubejs-client/core": "^0.31.0",
+      "chart.js": "3.7.0"
+    }
+  },
+  "devDependencies": {},
+  "description": ""
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página de Registro</title>
+        <link rel="stylesheet" href="css/form.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">   
+    </head>
+    <body>
+        
+        <div class="alert-box">
+            <p class="alert"></p>
+        </div>
+
+        <div>
+            <img width="400"
+            src="img/logo.png" alt="logo">
+        </div>
+
+        <div class="form">
+            <h1 class = "heading">Registro</h1>
+            <input id = nombre type="text" placeholder="Nombre" autocomplete="off" class="name" required>
+            <input id = id type="text" placeholder="ID de empleado" autocomplete="off" class="email" required>
+            <input id = contraseña type="password" placeholder="Contraseña" autocomplete="off" class="password" required>
+            <input type="password" placeholder="Confirmar Contraseña" autocomplete="off" class="confirm-password" required>
+            <button class="submit-btn">Registrar</button>
+            <a href="/login" class="link">¿Ya tienes tus credenciales? Inicia sesión.</a>
+        </div>
+
+        <script src="js/form.js"></script>
+    </body>
+</html>
