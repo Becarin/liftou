@@ -291,3 +291,14 @@ canvas {
     outline: none;
     border: none;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
