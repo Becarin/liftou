@@ -64,12 +64,12 @@ window.onload = () => {
                 {
                 label: 'Correcta',
                 data: correct,
-                backgroundColor: '#A9D585',
+                backgroundColor: '#75EC75',
                 },
                 {
                 label: 'Errónea',
                 data: error,
-                backgroundColor: '#ED254E',
+                backgroundColor: '#E76D62',
                 },
             ]
             };
@@ -95,7 +95,7 @@ window.onload = () => {
                 },
                 elements: {
                     bar: {
-                      borderRadius: 1 // Valor en píxeles para el radio de los bordes
+                      borderRadius: 20 // Valor en píxeles para el radio de los bordes
                     }
                   }
             }
@@ -138,22 +138,22 @@ window.onload = () => {
               {
               label: 'Errores P1',
               data: errorsP1,
-              backgroundColor: '#A8A8A8',
+              backgroundColor: '#ace8ac',
               },
               {
               label: 'Errores P2',
               data: errorsP2,
-              backgroundColor: '#FF5733',
+              backgroundColor: '#376D6C',
               },
               {
               label: 'Errores P3',
               data: errorsP3,
-              backgroundColor: '#001F3F',
+              backgroundColor: '#78a2a2',
               },
               {
               label: 'Errores P4',
               data: errorsP4,
-              backgroundColor: '#ed254e',
+              backgroundColor: '#ace8e7',
               },
           ]
           };
@@ -179,7 +179,7 @@ window.onload = () => {
               },
               elements: {
                   bar: {
-                    borderRadius: 1 // Valor en píxeles para el radio de los bordes
+                    borderRadius: 20 // Valor en píxeles para el radio de los bordes
                   }
                 }
           }

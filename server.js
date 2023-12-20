@@ -36,10 +36,14 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register-user', (req, res) => {
-    const { name, lastName, height, email, password } = req.body;
-    if( name.length == 0 || email.length == 0|| password.length == 0){
+    const { name, lastName, height, email, password, confirmPassword } = req.body;
+    if( name.length == 0 || email.length == 0|| password.length == 0 || lastName.length == 0 || height.length == 0){
         res.json('Rellena todos los campos');
-    } else {
+    }else if(password.length < 8){
+        res.json('La contraseña debe tener al menos 8 caracteres');
+    }else if(Number.isInteger(height) && height > 0 && height < 300){ 
+        res.json('Introduce una altura en cm válida. Por ejemplo: 170. Evita comas o cualquier otro símbolo de puntuación.');
+    }else {
         db("users").insert({
             name: name,
             lastName: lastName,
@@ -52,7 +56,10 @@ app.post('/register-user', (req, res) => {
             res.json(data[0])
         })
         .catch(err => {
-            if(err.detail.includes('already exists')){
+            console.error(err);
+            if(err.code.includes('22P02')){
+                res.json('La altura introducida debe estar en cm. Por favor, introduzca un número entero.');
+            }else if(err.detail.includes('already exists')){
                 res.json('Este id ya ha sido registrado. Por favor inserta el id que te ha sido proporcionado.');
             }
         })

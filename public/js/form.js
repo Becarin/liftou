@@ -101,7 +101,7 @@ const onEnter = (event) => {
 };
 
 // Agregar el evento keydown a los campos de formulario para detectar "Enter"
-[userName, email, password, confirmPassword].forEach((input) => {
+[userName, email, password, confirmPassword, height].forEach((input) => {
     if (input) {
         input.addEventListener('keydown', onEnter);
     }
