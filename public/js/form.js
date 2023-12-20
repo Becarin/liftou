@@ -17,6 +17,8 @@ window.onload = () => {
 
 const userName = document.querySelector('.name') || null;
 const email = document.querySelector('.email');
+const lastName = document.querySelector('.lastname') || null;
+const height = document.querySelector('.height') || null;
 const password = document.querySelector('.password');
 const confirmPassword = document.querySelector('.confirm-password');
 const submitBtn = document.querySelector('.submit-btn');
@@ -53,7 +55,9 @@ if(userName == null){ // quiere decir que la pagina de inicio de sesion está ab
             method: 'post', 
             headers: new Headers({'Content-Type': 'application/json'}),
             body: JSON.stringify({
-                name: userName.value, 
+                name: userName.value,
+                lastName: lastName.value,
+                height: height.value, 
                 email: email.value,
                 password: password.value
             })

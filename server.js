@@ -36,12 +36,14 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register-user', (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, lastName, height, email, password } = req.body;
     if( name.length == 0 || email.length == 0|| password.length == 0){
         res.json('Rellena todos los campos');
     } else {
         db("users").insert({
             name: name,
+            lastName: lastName,
+            height: height,
             email: email,
             password: password
         })

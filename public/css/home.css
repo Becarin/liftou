@@ -85,7 +85,7 @@ body{
     display: flex;
     align-items: center;
     margin-top: 180px; 
-    margin-left: 60px;
+    margin-left: 30px;
 }
 
 .horas {
@@ -100,7 +100,7 @@ body{
 
 /* Estilos adicionalesPara la imagen del reloj si es necesario */
 .reloj {
-    width: 50px;
+    width: 40px;
     background: none;
     outline: none;
     border: none;
@@ -113,17 +113,18 @@ body{
     color: #003366;
     Position: absolute;
     top: 347px;
-    left: 460px; 
+    left: 430px; 
     background: none;
     outline: none;
     border: none;
+    font-weight: bold;
 }
 
 .obs-container {
     display: flex;
     align-items: center;
     margin-top: 10px; 
-    margin-left: 170px;
+    margin-left: 30px;
 }
 
 .obsEncountered {
@@ -132,10 +133,11 @@ body{
     color: #B0564A;
     Position: absolute;
     top: 420px;
-    left: 460px; 
+    left: 320px; 
     background: none;
     outline: none;
     border: none;
+    font-weight: bold;
 }
 
 .obsAvoided {
@@ -144,19 +146,21 @@ body{
     color: #003366;
     Position: absolute;
     top: 390px;
-    left: 460px; 
+    left: 320px; 
     background: none;
     outline: none;
     border: none;
+    font-weight: bold;
 }
 
 .exceeded-limit {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
+    font-weight: bold;
     color: #B0564A;
     Position: absolute;
     top: 465px;
-    left: 460px; 
+    left: 365px; 
     background: none;
     outline: none;
     border: none;
@@ -165,10 +169,11 @@ body{
 .within-limit {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
+    font-weight: bold;
     color: #003366;
     Position: absolute;
     top: 465px;
-    left: 460px; 
+    left: 365px; 
     background: none;
     outline: none;
     border: none;
@@ -178,7 +183,7 @@ body{
     display: flex;
     align-items: center;
     margin-top: 10px; 
-    margin-left: 125px;
+    margin-left: 30px;
 }
 
 .graficaDia{
@@ -279,6 +284,9 @@ canvas {
     background: none;
     outline: none;
     border-radius: 10%;
+    width: 100%;
+    /*add border that fits the images*/
+    border: 5px solid #FFFBFE;
 }
 
 .textoFuerte , .textoAlivia{
