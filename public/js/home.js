@@ -42,8 +42,8 @@ window.onload = () => {
             
             const idFilter = data.filter(item => item.email === email);
             workedHours.innerHTML = idFilter[0].workedHours + " horas";
-            obsEncountered.innerHTML = idFilter[0].obsDetected - idFilter[0].obsAvoided + " choques";
-            obsAvoided.innerHTML = idFilter[0].obsAvoided + " evitados"; 
+            obsEncountered.innerHTML = idFilter[0].obsDetected - idFilter[0].obsAvoided;
+            obsAvoided.innerHTML = idFilter[0].obsAvoided ; 
             maxWeight.innerHTML = idFilter[0].maxWeight + "kg";
             // Verifica si se supera el límite de 26 kg
             if (idFilter[0].maxWeight > 25) {
