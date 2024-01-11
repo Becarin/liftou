@@ -7,14 +7,15 @@ const moment = require('moment');
 var currentDate = new Date();
 
 const db = knex({
-    client:'pg',
+    client: 'pg',
     connection: {
-        host: '127.0.0.1',
+        host: 'localhost', 
         user: 'postgres',
         password: '1234',
-        database: 'liftou'
+        database: 'liftou',
+        port: 5433
     }
-})
+});
 
 const app = express();
 
@@ -91,7 +92,7 @@ app.get('/api/data', (req, res) => {
     // Luego, envía los datos como respuesta en formato JSON.
     db.select('*')
     .from('users')
-    .join('stats', 'users.id', '=' , 'stats.id')
+    .join('stats', 'users.email', '=' , 'stats.email')
     .where('stats.date', currentDate)
     .then(data => {
     if(data.length){
@@ -115,7 +116,7 @@ app.get('/api/data', (req, res) => {
     // Realiza una consulta a la base de datos para obtener los datos de la semana actual
     db.select('*')
     .from('stats')
-    .join('users', 'users.id', '=', 'stats.id')
+    .join('users', 'users.email', '=', 'stats.email')
     .whereBetween('stats.date', [monday.format('YYYY-MM-DD'), sunday.format('YYYY-MM-DD')])
     .orderBy('stats.date', 'asc')
     .then(data => {

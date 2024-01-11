@@ -57,7 +57,7 @@ window.onload = () => {
             var error = [idFilter[0].p1Error, idFilter[0].p2Error, idFilter[0].p3Error, idFilter[0].p4Error]
 
             // Configuración de Chart.js
-            const labels = ["P1", "P2", "P3", "P4"];
+            const labels = ["Postura 1", "Postura 2", "Postura 3", "Postura 4"];
             const chartData = {
             labels: labels,
             datasets: [
@@ -136,22 +136,22 @@ window.onload = () => {
           labels: labels,
           datasets: [
               {
-              label: 'Errores P1',
+              label: 'Errores Postura 1',
               data: errorsP1,
               backgroundColor: '#ace8ac',
               },
               {
-              label: 'Errores P2',
+              label: 'Errores Postura 2',
               data: errorsP2,
               backgroundColor: '#376D6C',
               },
               {
-              label: 'Errores P3',
+              label: 'Errores Postura 3',
               data: errorsP3,
               backgroundColor: '#78a2a2',
               },
               {
-              label: 'Errores P4',
+              label: 'Errores Postura 4',
               data: errorsP4,
               backgroundColor: '#ace8e7',
               },
