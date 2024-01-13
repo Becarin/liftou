@@ -1,6 +1,6 @@
 *{
     margin: 0;
-   Padding: 0;
+   padding: 0;
     box-sizing: border-box;
 }
 
@@ -34,7 +34,7 @@ body{
     Position: absolute;
     top: 10px;
     right: 0;
-    Padding: 10px 20px;
+    padding: 10px 20px;
     text-transform: capitalize;
     font-size: 16px;
     color: #001F3F;
@@ -47,9 +47,8 @@ body{
 
 .fecha{
     font-family: 'Montserrat', sans-serif;
-    Position: absolute;
-    left: 15;
-    Padding: 100px 25px;
+    position: absolute;
+    padding: 100px;
     font-size: 40px;
     color: #376D6C;
     background: none;
@@ -62,7 +61,7 @@ body{
     Position: absolute;
     top: 155px;
     left: 0;
-    Padding: 30px 20px;
+    padding: 30px 20px;
     font-size: 50px;
     color: #1C3736;
     background: none;
@@ -72,7 +71,7 @@ body{
 }
 .logo{
     Position: relative;
-    Padding: 0px 0px;
+    padding: 0px 0px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -186,10 +185,14 @@ body{
     margin-left: 30px;
 }
 
+.p1, .p2, .p3, .p4{
+    width:3.5vw;
+}
+
 .graficaDia{
     font-family: 'Montserrat', sans-serif;
     left: 0;
-    Padding: 30px 20px;
+    padding: 30px 20px;
     font-size: 50px;
     color: #001F3F;
     background: none;
@@ -200,7 +203,7 @@ body{
 .graficaSemana{
     font-family: 'Montserrat', sans-serif;
     left: 0;
-    Padding: 60px 20px;
+    padding: 30px 20px;
     font-size: 50px;
     color: #001F3F;
     background: none;
@@ -208,85 +211,59 @@ body{
     border: none;
 }
 
-.basicStats, .dailyGraph, .weeklyGraph {
+.basicStats {
     margin-top: 20px;
 }
 
-.graph-container, .week-container {
-    display: flex;
-    justify-content: center;
+
+.dailyGraph,
+.weeklyGraph {
+    text-align: center;
+    margin: 20px;
 }
 
 .graph-container {
-    position: relative; /* Establece la posición relativa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 20px;
+}
+
+.graph-wrapper {
+    width: 100vw;
+    max-width: 800px;
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vw;
+}
+
+.image-with-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
 }
 
 canvas {
-    display: block; /* Asegura que el canvas se comporte como un bloque */
+    border: 1px solid #ccc;
 }
 
-/* Aplica posición absoluta a las imágenes */
-.p1, .p2, .p3, .p4 {
-    position: absolute;
-    bottom: 0; /* Posición en la parte inferior del contenedor */
-    left: 0; /* Ajusta la posición izquierda */
-    height: 90px;
-    display: none;
-}
-
-.p1{
-    left: 290px;
-}
-
-.p2{
-    left: 490px;
-}
-
-.p3{
-    left: 690px;
-}
-
-.p4{
-    left: 880px;
-}
-
-.week-container {
-    position: relative; /* Establece la posición relativa */
-}
-
-/* Aplica posición absoluta a las imágenes */
-.w1, .w2, .w3, .w4 {
-    position: absolute;
-    bottom: 0; /* Posición en la parte inferior del contenedor */
-    left: 0; /* Ajusta la posición izquierda */
-    height: 70px;
-    display: none;
-}
-
-.w1{
-    top: -56px;
-    left: 410px;
-}
-
-.w2{
-    top: -56px;
-    left: 530px;
-}
-
-.w3{
-    top: -56px;
-    left: 640px;
-}
-
-.w4{
-    top: -58px;
-    left: 750px;
+span {
+    font-family: 'Montserrat', sans-serif;
+    color: #376D6C;
+    font-weight: bold;
 }
 
 .caratula{
     border-radius: 15%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    width: 500px;
+    width: 30vw;
     left: 0;
     border: 5px solid #FFFBFE;
     margin: 0;
@@ -296,12 +273,20 @@ canvas {
 .textoFuerte , .textoAlivia{
     font-family: 'Montserrat', sans-serif;
     left: 0;
-    Padding: 20px 20px;
-    font-size: 50px;
+    padding: 20px 20px;
+    font-size: 3vw;
     color: #001F3F;
     background: none;
     outline: none;
     border: none;
+}
+
+.fuerte, .alivia{
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .flex-container {
@@ -309,8 +294,36 @@ canvas {
     justify-content: space-evenly;
 }
 
-@media (max-width: 768px) {
+.flexWelcome {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 900px) {
+    .p1, .p2, .p3, .p4{
+        width:10vw;
+    }
+    .textoFuerte , .textoAlivia{
+        font-size: 5vw;
+    }
     .flex-container {
         flex-direction: column;
     }
+    .fuerte, .alivia {
+        flex-direction: column;
+    }
+    .image-container {
+        flex-direction: row; 
+        gap: 2vw;
+    }
+    .image-with-text {
+        flex-direction: column;
+    }
+    .graph-wrapper {
+        width: 80vw;
+    }
+    .caratula{
+        width: 50vw;
+    }
 }
+

@@ -14,6 +14,10 @@
         <div class="container">
             <button class="logout">log out</button>
             <img width="200"  src="img/logo.png" alt="logo" class= "logo">
+            <div class="flexWelcome">
+                <h1 class = "greeting"></h1>
+                <h1 class="fecha"></h1>
+            </div>
             <h1 class = "greeting"></h1>
             <h1 class="fecha"></h1>
 
@@ -46,37 +50,67 @@
                 <div class="dailyGraph">
                     <h1 class="graficaDia">Tu postura hoy:</h1>
                     <div class="graph-container">
-                        <!--centrar div-->
-                        <div style="width: 800px;"><canvas id="posturaDia"></canvas></div>
-                        <img src="img/P1.png" alt="logo" class= "p1">
-                        <img src="img/P2.png" alt="logo" class= "p2">
-                        <img src="img/P3.png" alt="logo" class= "p3">
-                        <img src="img/P4.png" alt="logo" class= "p4">  
-                    </div>                   
+                        <div class="graph-wrapper">
+                            <canvas id="posturaDia"></canvas>
+                        </div>
+                        <div class="image-container">
+                            <div class="image-with-text">
+                                <img src="img/P1.png" alt="logo" class="p1">
+                                <span>Postura 1</span>
+                            </div>
+                            <div class="image-with-text">
+                                <img src="img/P2.png" alt="logo" class="p2">
+                                <span>Postura 2</span>
+                            </div>
+                            <div class="image-with-text">
+                                <img src="img/P3.png" alt="logo" class="p3">
+                                <span>Postura 3</span>
+                            </div>
+                            <div class="image-with-text">
+                                <img src="img/P4.png" alt="logo" class="p4">
+                                <span>Postura 4</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
                 
                 <div class="weeklyGraph">
                     <h1 class="graficaSemana">Tu postura esta semana:</h1>
-                    <div class="week-container">
-                        <img src="img/P1.png" alt="logo" class= "w1">
-                        <img src="img/P2.png" alt="logo" class= "w2">
-                        <img src="img/P3.png" alt="logo" class= "w3">
-                        <img src="img/P4.png" alt="logo" class= "w4"> 
-                        <div style="width: 800px;"><canvas id="posturaSemana"></canvas></div>
+                    <div class="graph-container">
+                        <div class="graph-wrapper">
+                            <canvas id="posturaSemana"></canvas>
+                        </div>
+                        <div class="image-container">
+                            <div class="image-with-text">
+                                <img src="img/P1.png" alt="logo" class="p1">
+                                <span>Postura 1</span>
+                            </div>
+                            <div class="image-with-text">
+                                <img src="img/P2.png" alt="logo" class="p2">
+                                <span>Postura 2</span>
+                            </div>
+                            <div class="image-with-text">
+                                <img src="img/P3.png" alt="logo" class="p3">
+                                <span>Postura 3</span>
+                            </div>
+                            <div class="image-with-text">
+                                <img src="img/P4.png" alt="logo" class="p4">
+                                <span>Postura 4</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="flex-container">
                     <div class="alivia">
-                        <h1 class="textoAlivia">Alivia tu postura:</h1>
-                        <!-- Carátula del video con hipervínculo al video -->
+                        <h1 class="textoAlivia">Alivia tu postura</h1>
                         <a href="https://youtu.be/SnNKkcsp_pk?si=WfOqns4T3ryDNL4h" target="_blank">
                             <img src="img/video1.png" alt="Carátula del video" class="caratula">
                         </a>
                     </div>
                     <div class="fuerte">
-                        <h1 class="textoFuerte">Hazte más fuerte:</h1>
-                        <!-- Carátula del video con hipervínculo al video -->
+                        <h1 class="textoFuerte">Hazte más fuerte</h1>
                         <a href="https://youtu.be/MCtS2U-Wn_E?si=4_-U7Mo55ks38Zv3" target="_blank">
                             <img src="img/video2.png" alt="Carátula del video" class="caratula">
                         </a>
