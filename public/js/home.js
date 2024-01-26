@@ -17,15 +17,15 @@ window.onload = () => {
     } else{
         greeting.innerHTML = `Bienvenid@ ${sessionStorage.name}`;
         // Get today's date
-        const today = new Date();
+        var today = new Date();
         // Get the day of the month
-        const dayNum = today.getDate();
+        var dayNum = today.getDate();
         // Get the month
-        const month = today.getMonth();
+        var month = today.getMonth();
         // Get the week day
-        const day = today.getDay();
+        var day = today.getDay();
         const weekdays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        const weekday = weekdays[day];
+        var weekday = weekdays[day];
         // Create a string with the date in Spanish format
         const dateString = `${weekday} ${dayNum} de ${getMonthName(month)}`;
         // Add the date string to the top of the web app
@@ -40,10 +40,10 @@ window.onload = () => {
         .then(response => response.json())
         .then(data => {
             
-            const idFilter = data.filter(item => item.email === email);
+            var idFilter = data.filter(item => item.email === email);
             workedHours.innerHTML = idFilter[0].workedHours + " horas";
-            obsEncountered.innerHTML = idFilter[0].obsDetected - idFilter[0].obsAvoided;
-            obsAvoided.innerHTML = idFilter[0].obsAvoided ; 
+            obsEncountered.innerHTML = idFilter[0].obsDetected - idFilter[0].obsAvoided + " choque(s)";
+            obsAvoided.innerHTML = idFilter[0].obsAvoided + " evitado(s)"; 
             maxWeight.innerHTML = idFilter[0].maxWeight + "kg";
             // Verifica si se supera el límite de 26 kg
             if (idFilter[0].maxWeight > 25) {
@@ -53,10 +53,60 @@ window.onload = () => {
                 // Si no se supera, establece la clase CSS para texto en verde
                 maxWeight.classList.add('within-limit');
             }
-            var correct = [idFilter[0].p1Correct, idFilter[0].p2Correct, idFilter[0].p3Correct, idFilter[0].p4Correct];
-            var error = [idFilter[0].p1Error, idFilter[0].p2Error, idFilter[0].p3Error, idFilter[0].p4Error]
 
-            // Configuración de Chart.js
+            var correct = [];
+            var error = [];
+
+            if(idFilter[0].length != 0){
+                var correct = [idFilter[0].p1Correct, idFilter[0].p2Correct, idFilter[0].p3Correct, idFilter[0].p4Correct];
+                var error = [idFilter[0].p1Error, idFilter[0].p2Error, idFilter[0].p3Error, idFilter[0].p4Error];
+            }
+
+            //Logica recomendaciones
+            var maxErrorsIndex = error.indexOf(Math.max(...error));
+            var defaultAliviaLink = "https://www.youtube.com/watch?v=6Yx_DuyYksg&pp=ygUObGV2YW50YXIgY2FyZ2E%3D";
+            var defaultFuerteLink = "https://youtu.be/7Z4BB9W9sBo";
+            var defaultAliviaImg = "img/default1.jpeg";
+            var defaultFuerteImg = "img/default2.jpeg";
+
+            var aliviaImgs = ["img/lumbarAlivio.jpeg",
+                                "img/aliviorodilla.jpeg",
+                                "img/aliviahombro.jpeg",
+                                "img/fortalecepie.jpeg"
+                            ];            
+
+            var aliviaLinks = [
+                "https://www.youtube.com/watch?v=WJ2224U5vVc&pp=ygUScHJldmVuaXIgbHVtYmFsZ2lh",
+                "https://www.youtube.com/watch?v=Hd5SHO44VQ0&pp=ygUOYWxpdmlvIHJvZGlsbGE%3D",
+                "https://www.youtube.com/watch?v=w4H0N_h_G9U&pp=ygUOYWxpdmlhciBjdWVsbG8%3D",
+                "https://www.youtube.com/watch?v=hzxeRjpgcDE&pp=ygUPZm9ydGFsZWNlciBwaWVz"
+            ];
+            
+            var fuerteImgs = ["img/lumbarFuerte.jpeg",
+                                "img/fuerzarodilla.jpeg",
+                                "img/fuerzahombro.jpeg",
+                                "img/fortalecemuñeca.jpeg"
+                                ];
+            var fuerzaLinks = [
+                "https://www.youtube.com/watch?v=sAFN3bkK1Dc&pp=ygUScHJldmVuaXIgbHVtYmFsZ2lh",
+                "https://www.youtube.com/watch?v=pjj4MjeBqDc&pp=ygU8NSBlamVyY2ljaW9zIHBhcmEgcHJldmVuaXIgZG9sb3JlcyB5IGZvcnRhbGVjZXIgdHVzIHJvZGlsbGFz",
+                "https://www.youtube.com/watch?v=Jw5AINWi4bU&pp=ygUSZm9ydGFsZWNlciBIT01CUk9T",
+                "https://www.youtube.com/watch?v=pTkcb8HAtqg&pp=ygUTZm9ydGFsZWNlciBtdcOxZWNhcw%3D%3D"
+            ];
+
+            var aliviaLink = error[maxErrorsIndex] > 0 ? aliviaLinks[maxErrorsIndex] : defaultAliviaLink;
+            var fuerteLink = error[maxErrorsIndex] > 0 ? fuerzaLinks[maxErrorsIndex] : defaultFuerteLink;
+            var aliviaImg = error[maxErrorsIndex] > 0 ? aliviaImgs[maxErrorsIndex] : defaultAliviaImg;
+            var fuerteImg = error[maxErrorsIndex] > 0 ? fuerteImgs[maxErrorsIndex] : defaultFuerteImg;
+
+            document.querySelector('.alivia a').setAttribute('href', aliviaLink);
+            document.querySelector('.alivia img').setAttribute('src', aliviaImg);
+
+            document.querySelector('.fuerte a').setAttribute('href', fuerteLink);
+            document.querySelector('.fuerte img').setAttribute('src', fuerteImg);
+
+            // Configuración de Chart.j
+
             const labels = ["Postura 1", "Postura 2", "Postura 3", "Postura 4"];
             const chartData = {
             labels: labels,
@@ -104,9 +154,15 @@ window.onload = () => {
             document.querySelectorAll('.p1, .p2, .p3, .p4').forEach(img => {
                 img.style.display = 'inline'; // Cambia la visualización de las imágenes a 'inline'
             });
-
+            
             const posturaDiaCanvas = document.getElementById('posturaDia');
-            const myChart = new Chart(posturaDiaCanvas, config);
+            if (idFilter[0].length === 0) {
+                // Display a placeholder message or image
+                document.getElementById('posturaDia').innerHTML = '<img src="img/empty-folder.png">';
+            } else {
+                // Your existing chart creation code
+                const myChart = new Chart(posturaDiaCanvas, config);
+            }
         })
         .catch(error => {
             console.error(error);
@@ -116,7 +172,7 @@ window.onload = () => {
         .then(res => res.json())
         .then(data => {
         // Almacena los datos en la variable weekData
-        const idFilter = data.filter(item => item.email === email);
+        var idFilter = data.filter(item => item.email === email);
         var weekData = idFilter;
         var errorsP1 = [];
         var errorsP2 = [];

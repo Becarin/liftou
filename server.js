@@ -4,8 +4,6 @@ const bodyParser = require('body-parser');
 const knex = require('knex');
 const moment = require('moment');
 
-var currentDate = new Date();
-
 const db = knex({
     client: 'pg',
     connection: {
@@ -88,12 +86,11 @@ app.post('/login-user', (req, res)=>{
 })
 
 app.get('/api/data', (req, res) => {
-    // Aquí puedes utilizar el objeto 'db' para realizar consultas a la base de datos y obtener los datos que necesitas.
-    // Luego, envía los datos como respuesta en formato JSON.
+    const today = moment()
     db.select('*')
     .from('users')
     .join('stats', 'users.email', '=' , 'stats.email')
-    .where('stats.date', currentDate)
+    .where('stats.date', today)
     .then(data => {
     if(data.length){
       res.json(data);
@@ -133,6 +130,4 @@ app.get('/api/data', (req, res) => {
 });
 
 
-app.listen(3000, (req, res)=>{
-    console.log('listening on port 3000.......')
-})
+app.listen(process.env.PORT || 3000)
